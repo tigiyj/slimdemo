@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'none'
-    }
-
-  }
+  agent any
   stages {
     stage('Composer install') {
       agent {
