@@ -1,15 +1,20 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'none'
+    }
+
+  }
   stages {
     stage('Composer install') {
       agent {
         docker {
-          image 'composer:latest'
+          image 'composer:1.10.17'
         }
 
       }
       steps {
-        sh 'docker run --rm --interactive --tty --volume $PWD:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install'
+        sh 'docker run --rm --interactive --tty --volume /var/lib/docker/volumes/demojenkins_jenkins_data/_data/workspace/demo_slim_jenkins-pipeline@2:/app composer:1.10.17 install'
       }
     }
 
