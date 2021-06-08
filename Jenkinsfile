@@ -5,12 +5,12 @@ pipeline {
       agent {
         docker {
           image 'composer:latest'
-          args '--rm --interactive --tty  --volume $PWD:/app   composer install'
         }
 
       }
       steps {
         echo 'composer install'
+        sh 'docker run --rm --interactive --tty --volume $PWD:/app composer install'
       }
     }
 
