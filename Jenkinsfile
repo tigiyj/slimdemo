@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        sh 'docker run --rm --interactive --tty --volume $PWD:/app composer install'
+        sh 'docker run --rm --interactive --tty --volume $PWD:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install'
       }
     }
 
