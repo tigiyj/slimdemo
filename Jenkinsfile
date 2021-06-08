@@ -1,11 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'php:7-alpine'
-      args '-p 8080:8080'
-    }
-
-  }
+  agent any
   stages {
     stage('Composer install') {
       agent {
