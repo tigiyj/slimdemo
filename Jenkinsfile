@@ -5,7 +5,7 @@ pipeline {
       agent {
         docker {
           image 'composer:latest'
-          args '--rm --interactive --tty --volume $PWD:/app    --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer <command>'
+          args '--rm --interactive --tty  --volume $PWD:/app   composer install'
         }
 
       }
